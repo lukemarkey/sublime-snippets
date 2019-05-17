@@ -1,5 +1,5 @@
 <snippet>
-    <content><![CDATA[
+	<content><![CDATA[
 class ${1:VIEW_NAME}(TemplateView):
 	template_name = '${2:TEMPLATE_HTML_PATH}'
 
@@ -8,6 +8,6 @@ class ${1:VIEW_NAME}(TemplateView):
 		return context
 $0
 ]]></content>
-    <tabTrigger>django-view-templateview</tabTrigger>
-    <scope></scope>
+	<tabTrigger>django-view-templateview</tabTrigger>
+	<scope></scope>
 </snippet>
