@@ -1,0 +1,12 @@
+<snippet>
+    <content><![CDATA[
+"scripts": {
+    "css-compile": "node-sass ${1:PROJECT_NAME}/static/${1:PROJECT_NAME}/scss -o ${1:PROJECT_NAME}/static/${1:PROJECT_NAME}/css",
+    "css-watch": "node-sass ${1:PROJECT_NAME}/static/${1:PROJECT_NAME}/scss -o ${1:PROJECT_NAME}/static/${1:PROJECT_NAME}/css --watch",
+    "browser-sync": "browser-sync start --files \"${1:PROJECT_NAME}/static/${1:PROJECT_NAME}/css/*.css, ${1:PROJECT_NAME}/static/${1:PROJECT_NAME}/js/*.js, ${1:PROJECT_NAME}/**/*.py, ${1:PROJECT_NAME}/templates/${1:PROJECT_NAME}/**/*.html\" --proxy 127.0.0.1:8000 --reload-delay=300 --reload-debounce=500",
+    "start": "concurrently --kill-others \"npm run css-watch\" \"python3 manage.py runserver\" \"npm run browser-sync\" "
+},
+]]></content>
+    <tabTrigger>npm.scripts.django-reload</tabTrigger>
+    <scope></scope>
+</snippet>

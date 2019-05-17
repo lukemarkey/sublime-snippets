@@ -1,0 +1,82 @@
+<snippet>
+    <content><![CDATA[
+#!/usr/bin/env node
+
+// MODULE DEPENDENCIES
+
+var app = require('../app');
+var debug = require('debug')('mean-app:server')
+var http = require('http')
+
+// GET PORT FROM ENVIRONMENT AND STORE IN EXPRESS
+
+var port = normalizePort(process.env.PORT || '3000');
+
+// CREATE HTTP SERVER
+
+var server = http.createServer(app);
+
+// LISTEN ON PROVIDED PORT
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+// NORMALIZE PORT INTO NUMBER, STRING OR FALSE
+
+function normalizePort(val) {
+	var port = parseInt(val, 10);
+
+	if (isNaN(port)) {
+		return val;
+	}
+
+	if (port >= 0) {
+		return port;
+	}
+
+	return false;
+}
+
+// EVEN LISTENER FOR HTTP SERVER ERROR EVENT
+
+function onError(error) {
+
+	if (error.syscall !== 'listen') {
+		throw error;
+	}
+
+	var bind = typeof port === 'string'
+		? 'Pipe ' + port
+		: 'Port ' + port
+
+	// HANDLE ERRORS WITH MESSAGES
+
+	switch (error.code) {
+		case 'EACCES':
+			console.error(bind + ' requires elevated privileges');
+			process.exit(1);
+			break;
+		case 'EADDRINUSE':
+			console.error(bind + ' is already in use');
+			process.exit(1);
+			break;
+		default:
+			throw error;
+	}
+}
+
+// EVENT LISTENER FOR HTTP SERVER LISTENING EVENT
+
+function onListening() {
+	var addr = server.address();
+	var bind = typeof addr === 'string'
+		? 'pipe ' + addr
+		: 'port ' + addr.port;
+	debug('Listening on ' + bind);
+}
+
+]]></content>
+    <tabTrigger>exp.www</tabTrigger>
+    <scope></scope>
+</snippet>

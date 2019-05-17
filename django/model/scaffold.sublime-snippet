@@ -1,0 +1,30 @@
+<snippet>
+    <content><![CDATA[
+class ${1:ModelName}(models.Model):
+
+	name = models.CharField(max_length=200, blank=True, null=True, unique=True)
+	slug = models.SlugField(editable=False)
+
+	created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+    	ordering = ['-updated_at']
+    	verbose_name_plural = '${2:ModelNamePlural}'
+
+    def __str__(self):
+    	return self.name
+
+    def __unicode__(self):
+    	return self.name
+
+    def save(self, *args, **kwargs):
+    	if not self.id: # ONLY UPDATE SLUG ON CREATE
+			self.slug = slugify(self.name) # AUTOMATICALLY UPDATE SLUG WITH MODEL NAME
+		super(${1:ModelName}, self).save(*args, **kwargs)
+
+$0
+]]></content>
+    <tabTrigger>django-model-scaffold</tabTrigger>
+    <scope></scope>
+</snippet>

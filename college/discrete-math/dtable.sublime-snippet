@@ -1,0 +1,11 @@
+<snippet>
+    <content><![CDATA[
+p 		q 		~p 		~q 		$0
+T 		T 		F 		F
+T 		F 		F		T
+F 		T 		T 		F
+F 		F 		T 		T
+]]></content>
+    <tabTrigger>ttable</tabTrigger>
+    <scope></scope>
+</snippet>

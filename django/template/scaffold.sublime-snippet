@@ -1,0 +1,30 @@
+<snippet>
+    <content><![CDATA[
+{% extends "${1:website/layout/layout.html}" %}
+
+{% load static %}
+
+{% block seo %}
+
+{% endblock seo %}
+
+
+{% block css %}
+
+{% endblock css %}
+
+
+{% block content %}
+
+$0
+
+{% endblock content %}
+
+
+{% block js %}
+
+{% endblock js %}
+]]></content>
+    <tabTrigger>django-template-scaffold</tabTrigger>
+    <scope></scope>
+</snippet>

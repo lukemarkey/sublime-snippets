@@ -1,0 +1,54 @@
+<snippet>
+    <content><![CDATA[
+// DEPENDENCIES
+
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var bodyParser = require('body-parser');
+
+// ROUTES
+
+var ${1:API_NAME}Router = require('./routes/${1:API_NAME}');
+
+// DECLARE APP
+
+var app = express();
+
+// CONFIGURE APP
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({'extended': 'false'}));
+app.use(express.static(path.join(__dirname, 'dist')));
+
+app.use('/${2:API_NAME_PLURAL}', express.static(path.join(__dirname, 'dist')));
+app.use('/${1:API_NAME}', ${1:API_NAME}Router);
+
+// CATCH 404 AND FORWARD TO ERROR HANDLER
+
+app.use(function(req, res, next) {
+	var err = new Error('Not Found');
+	err.status = 404;
+	next(err);
+});
+
+// ERROR HANDLER
+
+app.use(function(err, req, res, next) {
+	// SET LOCALS, ONLY PROVIDING ERROR IN DEVELOPMENT
+	res.locals.message = err.message;
+	res.locals.error = req.app.get('env') === 'development' ? err : {};
+	// RENDER ERROR PAGE
+	res.status(err.status || 500);
+	res.render('error');
+});
+
+module.exports = app;
+
+]]></content>
+    <tabTrigger>exp.app</tabTrigger>
+    <scope></scope>
+</snippet>
