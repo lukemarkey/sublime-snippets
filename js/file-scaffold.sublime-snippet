@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+///////////////////////////////////////////////////////////////////////////
+// $1
+///////////////////////////////////////////////////////////////////////////
+
+document.addEventListener("DOMContentLoaded", function(event) {
+	(function(\$) {
+		$2
+	})(jQuery);
+});
+]]></content>
+	<tabTrigger>js-file-scaffold</tabTrigger>
+	<scope></scope>
+</snippet>
