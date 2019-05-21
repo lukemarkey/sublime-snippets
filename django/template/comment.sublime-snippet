@@ -1,0 +1,7 @@
+<snippet>
+    <content><![CDATA[
+{% comment %}{% endcomment %}
+]]></content>
+    <tabTrigger>django-template-comment</tabTrigger>
+    <scope></scope>
+</snippet>
