@@ -1,0 +1,17 @@
+<snippet>
+    <content><![CDATA[
+{
+	"model": "website.Event",
+	"pk": ${1:1},
+	"fields": {
+		"name": "Victory Wave ${3:Air Force} Insignia - Medium",
+		"size": "Medium",
+		"price": 35.00,
+		"length": 6.0,
+		"height": 6.0
+	}
+},
+]]></content>
+    <tabTrigger>djfix</tabTrigger>
+    <scope></scope>
+</snippet>
